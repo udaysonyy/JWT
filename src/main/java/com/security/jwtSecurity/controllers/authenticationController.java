@@ -4,19 +4,19 @@ import com.security.jwtSecurity.Entities.AuthenticationRequest;
 import com.security.jwtSecurity.Entities.AuthenticationResponse;
 import com.security.jwtSecurity.Entities.RegisterRequest;
 import com.security.jwtSecurity.services.AuthenticationService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class authenticationController {
 
-    private AuthenticationService authenticationService;
+    final private AuthenticationService authenticationService;
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest registerRequest){
